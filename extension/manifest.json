@@ -1,0 +1,27 @@
+{
+  "name": "Better Zeplin",
+  "description": "Better Zeplin",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "host_permissions": ["*://app.zeplin.io/*"],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "zelin_ruleset",
+        "enabled": true,
+        "path": "zelin_rules.json"
+      }
+    ]
+  },
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "declarativeNetRequestWithHostAccess"
+  ],
+  "icons": {
+    "16": "images/zeplinopeninapp16.png",
+    "32": "images/zeplinopeninapp32.png",
+    "48": "images/zeplinopeninapp48.png",
+    "128": "images/zeplinopeninapp128.png"
+  }
+}

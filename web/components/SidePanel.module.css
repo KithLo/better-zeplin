@@ -1,0 +1,47 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.items {
+  padding: 12px;
+  line-height: 1.5;
+  flex: 1 1 0;
+  overflow: auto;
+  word-break: break-word;
+}
+
+.detail {
+  padding-left: 12px;
+}
+
+.count {
+  color: lightgray;
+}
+
+.string {
+  color: #7a3e9d;
+}
+
+.number {
+  color: #f53232;
+}
+
+.boolean {
+  color: #448c27;
+}
+
+.asset {
+  padding: 12px;
+  border-top: 1px solid #e2e2e2;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+}

@@ -1,0 +1,35 @@
+{
+  "name": "better-zeplin",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "update": "node cli.mjs",
+    "dev": "vite --port 65432",
+    "preview": "vite preview --port 65432",
+    "build": "vite build",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "dependencies": {
+    "@solidjs/router": "^0.10.5",
+    "clsx": "^2.0.0",
+    "solid-icons": "^1.1.0",
+    "solid-js": "^1.8.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.10",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-solid": "^0.13.0",
+    "jest": "^29.7.0",
+    "jest-environment-node": "^29.7.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8",
+    "vite-plugin-solid": "^2.8.0",
+    "vite-plugin-top-level-await": "^1.4.1"
+  }
+}

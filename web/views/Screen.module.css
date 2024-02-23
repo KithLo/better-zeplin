@@ -1,0 +1,34 @@
+.main {
+  display: flex;
+  height: 100%;
+}
+
+.content {
+  flex: 1 1 0;
+  overflow: auto;
+}
+
+.screen {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.rulerActive {
+  cursor: none;
+}
+
+.aside {
+  width: 300px;
+  background-color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.first {
+  border: 1px solid var(--first-layer);
+}
+
+.second {
+  border: 1px solid var(--second-layer);
+}

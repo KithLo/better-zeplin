@@ -1,0 +1,11 @@
+.layer {
+  position: absolute;
+}
+
+.first {
+  outline: 2px solid var(--first-layer);
+}
+
+.second {
+  outline: 2px solid var(--second-layer);
+}
