@@ -7,7 +7,7 @@ export default defineConfig({
   root: path.resolve(process.cwd(), "web"),
   base: "/",
   build: {
-    outDir: path.resolve(process.cwd(), "dist"),
+    outDir: path.resolve(process.cwd(), "public"),
     emptyOutDir: true,
   },
   plugins: [solid(), topLevelAwait()],

@@ -1,38 +1,48 @@
-import rawData from "../data/projects.json"
-
-type Screens = Record<string, Record<string, Zeplin.Screen>>
-
-export const screens: Screens = (rawData as any[]).reduce((acc: Screens, p) => {
-  const screenMap: Record<string, Zeplin.Screen> = {}
-  for (const s of p.screens) {
-    screenMap[s._id] = {
-      id: s._id,
-      name: s.name,
-      updatedAt: new Date(s.updated),
-      snapshot: s.latestVersion.snapshot.url,
-      url: s.latestVersion.fullSnapshotUrl,
-    }
+function getZeplinToken() {
+  const key = "zeplinToken="
+  const cookie = document.cookie
+  let start
+  if (cookie.startsWith(key)) {
+    start = key.length
+  } else {
+    const index = cookie.indexOf(`; ${key}`)
+    if (index === -1) return
+    start = index + key.length + 2
   }
-  acc[p._id] = screenMap
-  return acc
-}, {})
+  const end = cookie.indexOf(";", start)
+  return end === -1 ? cookie.slice(start) : cookie.slice(start, end)
+}
 
-export const projects: Zeplin.Project[] = (rawData as any[]).map((p) => {
-  const screenMap = screens[p._id]!
+export async function loadProject(projectId: string) {
+  const token = getZeplinToken()
+  if (!token) return null
+  const res = await fetch(`https://api.zeplin.io/v7/projects/${projectId}`, {
+    headers: {
+      "zeplin-token": token,
+    },
+  })
+  if (res.ok) {
+    const data = await res.json()
+    return data
+  }
+  return null
+}
+
+export async function loadScreen(
+  projectId: string,
+  screenId: string,
+): Promise<Zeplin.Screen | null> {
+  const project = await loadProject(projectId)
+  const s = (project.screens as any[]).find((r) => r._id === screenId)
+  if (!s) return null
   return {
-    id: p._id,
-    name: p.name,
-    createdAt: new Date(p.created),
-    updatedAt: new Date(p.updated),
-    sections: (p.sections as any[]).map((s) => ({
-      id: s._id,
-      name: s.name,
-      createdAt: new Date(s.createdAt),
-      updatedAt: new Date(s.updatedAt),
-      screens: (s.screens as string[]).map((n) => screenMap[n]!),
-    })),
+    id: s._id,
+    name: s.name,
+    updatedAt: new Date(s.updated),
+    snapshot: s.latestVersion.snapshot.url,
+    url: s.latestVersion.fullSnapshotUrl,
   }
-})
+}
 
 export async function loadScreenDetail(
   url: string,

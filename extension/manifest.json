@@ -3,7 +3,7 @@
   "description": "Better Zeplin",
   "version": "1.0.0",
   "manifest_version": 3,
-  "host_permissions": ["*://app.zeplin.io/*"],
+  "host_permissions": ["*://*/*"],
   "declarative_net_request": {
     "rule_resources": [
       {
@@ -14,6 +14,7 @@
     ]
   },
   "permissions": [
+    "cookies",
     "declarativeNetRequest",
     "declarativeNetRequestFeedback",
     "declarativeNetRequestWithHostAccess"
@@ -23,5 +24,8 @@
     "32": "images/zeplinopeninapp32.png",
     "48": "images/zeplinopeninapp48.png",
     "128": "images/zeplinopeninapp128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
   }
 }

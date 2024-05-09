@@ -1,5 +1,6 @@
 /data
 /config.json
+/public
 **/_metadata
 
 # Created by https://www.toptal.com/developers/gitignore/api/windows,macos,linux,node,visualstudiocode

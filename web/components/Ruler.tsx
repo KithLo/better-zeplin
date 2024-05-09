@@ -20,8 +20,6 @@ export function Ruler(props: {
   top: number
   bottom: number
 }): JSX.Element {
-  let floatingEl: HTMLDivElement
-
   return (
     <>
       <div
@@ -41,7 +39,6 @@ export function Ruler(props: {
         }}
       />
       <div
-        ref={floatingEl!}
         class={styles.tooltip}
         style={{
           top: `${props.y + props.offsetY}px`,

@@ -5,7 +5,6 @@ import clsx from "clsx"
 
 export function Layer(props: {
   layer: Zeplin.Layer
-  extended: boolean
   firstLayerId: string | null
   secondLayerId: string | null
 }): JSX.Element {
@@ -30,7 +29,6 @@ export function Layer(props: {
             {(child) => (
               <Layer
                 layer={child}
-                extended={props.extended}
                 firstLayerId={props.firstLayerId}
                 secondLayerId={props.secondLayerId}
               />

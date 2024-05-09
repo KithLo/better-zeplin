@@ -55,6 +55,7 @@ module.exports = {
     {
       files: ["extension/**"],
       env: {
+        browser: true,
         webextensions: true,
       },
     },

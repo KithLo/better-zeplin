@@ -5,12 +5,35 @@
     "action": {
       "type": "redirect",
       "redirect": {
-        "regexSubstitution": "http://localhost:65432/project/\\1/screen/\\2"
+        "regexSubstitution": "https://better-zeplin.kithlo.com/project/\\1/screen/\\2"
       }
     },
     "condition": {
       "regexFilter": "https://app.zeplin.io/project/(.*?)/screen/(.*?)",
       "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 2,
+    "action": {
+      "type": "modifyHeaders",
+      "responseHeaders": [
+        {
+          "header": "Access-Control-Allow-Origin",
+          "operation": "set",
+          "value": "*"
+        },
+        {
+          "header": "Access-Control-Allow-Headers",
+          "operation": "set",
+          "value": "*"
+        }
+      ]
+    },
+    "condition": {
+      "urlFilter": "|https://api.zeplin.io/v7/projects/*",
+      "resourceTypes": ["xmlhttprequest"]
     }
   }
 ]

@@ -1,12 +1,12 @@
 {
-    "compilerOptions": {
-        "module": "ESNext",
-        "lib": ["ESNext"],
-        "allowImportingTsExtensions": true,
-        "noEmit": true,
-    },
-    "references": [
-        { "path": "./configs/tsconfig.node.json" },
-        { "path": "./configs/tsconfig.js.json" },
-    ],
+  "compilerOptions": {
+    "module": "ESNext",
+    "lib": ["ESNext"],
+    "allowImportingTsExtensions": true,
+    "noEmit": true
+  },
+  "references": [
+    { "path": "./configs/tsconfig.node.json" },
+    { "path": "./configs/tsconfig.js.json" }
+  ]
 }

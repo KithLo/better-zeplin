@@ -9,7 +9,7 @@ import {
   createEffect,
   onCleanup,
 } from "solid-js"
-import { loadScreenDetail, screens } from "../data"
+import { loadScreen, loadScreenDetail } from "../data"
 import { Layer } from "../components/Layer"
 
 import styles from "./Screen.module.css"
@@ -34,7 +34,6 @@ function getLayerIdsFromEvent(ev: MouseEvent): string[] {
 export function Screen(): JSX.Element {
   const params = useParams<{ projectId: string; screenId: string }>()
 
-  const screen = createMemo(() => screens[params.projectId]?.[params.screenId])
   const [firstLayerId, setFirstLayerId] = createSignal<string | null>(null)
   const [secondLayerId, setSecondLayerId] = createSignal<string | null>(null)
   const [isRulerActive, setRulerActive] = createSignal(true)
@@ -47,6 +46,12 @@ export function Screen(): JSX.Element {
   })
   const [showSideLayer, setShowSideLayer] = createSignal<"first" | "second">(
     "first",
+  )
+
+  const [screen] = createResource(
+    () => [params.projectId, params.screenId] as const,
+    ([projectId, screenId]): Promise<Zeplin.Screen | null> =>
+      loadScreen(projectId, screenId),
   )
 
   const [data] = createResource(screen, async (screen) => {
@@ -211,7 +216,6 @@ export function Screen(): JSX.Element {
                 {(layer) => (
                   <Layer
                     layer={layer}
-                    extended={extendedLayer()}
                     firstLayerId={firstLayerId()}
                     secondLayerId={secondLayerId()}
                   />
