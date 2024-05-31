@@ -24,3 +24,17 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     copyUserToken(tab.url)
   }
 })
+
+function gotoZeplin() {
+  const pathname = window.location.pathname
+  if (/^\/project\/.*?\/screen\//.test(pathname)) {
+    window.location.assign("https://app.zeplin.io" + window.location.pathname)
+  }
+}
+
+chrome.action.onClicked.addListener((tab) => {
+  chrome.scripting.executeScript({
+    target: { tabId: tab.id },
+    func: gotoZeplin,
+  })
+})

@@ -10,7 +10,8 @@
     },
     "condition": {
       "regexFilter": "https://app.zeplin.io/project/(.*?)/screen/(.*?)",
-      "resourceTypes": ["main_frame"]
+      "resourceTypes": ["main_frame"],
+      "excludedInitiatorDomains": ["better-zeplin.kithlo.com"]
     }
   },
   {
