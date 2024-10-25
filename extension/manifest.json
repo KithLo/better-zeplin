@@ -7,9 +7,14 @@
   "declarative_net_request": {
     "rule_resources": [
       {
-        "id": "zelin_ruleset",
+        "id": "zelin_cors_rules",
         "enabled": true,
-        "path": "zelin_rules.json"
+        "path": "zelin_cors_rules.json"
+      },
+      {
+        "id": "zelin_redirect_rules",
+        "enabled": false,
+        "path": "zelin_redirect_rules.json"
       }
     ]
   },
@@ -22,6 +27,7 @@
     }
   },
   "permissions": [
+    "contextMenus",
     "cookies",
     "scripting",
     "activeTab",

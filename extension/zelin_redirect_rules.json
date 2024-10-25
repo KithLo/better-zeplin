@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "https://better-zeplin.kithlo.com/project/\\1/screen/\\2"
+      }
+    },
+    "condition": {
+      "regexFilter": "https://app.zeplin.io/project/(.*?)/screen/(.*?)",
+      "resourceTypes": ["main_frame"],
+      "excludedInitiatorDomains": ["better-zeplin.kithlo.com"]
+    }
+  }
+]
