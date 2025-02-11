@@ -107,14 +107,18 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
 })
 
 function gotoZeplin() {
-  const pathname = window.location.pathname
+  const allowedPrefix = "/better-zeplin"
+  let pathname = window.location.pathname
+  if (pathname.startsWith(allowedPrefix)) {
+    pathname = pathname.slice(allowedPrefix.length)
+  }
   if (/^\/project\/.*?\/screen\//.test(pathname)) {
     window.location.assign(
       "https://" +
-        (window.location.host.includes("better-zeplin")
+        (window.location.host.includes("github.io")
           ? "app.zeplin.io"
-          : "better-zeplin.kithlo.com") +
-        window.location.pathname,
+          : "kithlo.github.io/better-zeplin") +
+        pathname,
     )
   }
 }

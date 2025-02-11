@@ -5,7 +5,7 @@ import topLevelAwait from "vite-plugin-top-level-await"
 
 export default defineConfig({
   root: path.resolve(process.cwd(), "web"),
-  base: "/",
+  base: "/better-zeplin/",
   build: {
     outDir: path.resolve(process.cwd(), "public"),
     emptyOutDir: true,
